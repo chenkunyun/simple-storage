@@ -1,27 +1,26 @@
 package com.kchen.storage.rest.controller;
 
-import com.kchen.storage.dao.domain.common.Account;
-import com.kchen.storage.dao.mapper.common.AccountMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by kchen on 2017/2/28.
+ * login stuff
  */
 @RestController
 @RequestMapping("/")
 public class LoginController {
 
-    @Autowired
-    private AccountMapper accountMapper;
-
     @RequestMapping("/")
-    public String home() {
-        Account account = accountMapper.selectByPrimaryKey(Long.valueOf(1));
-        System.out.println(account);
-        return "home";
+    public Map<String, String> home() {
+        Map<String, String> result = new HashMap<>();
+        result.put("code", "1");
+        result.put("msg", "succ");
+        return result;
     }
 
     @RequestMapping("/login")
