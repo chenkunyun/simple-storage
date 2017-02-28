@@ -114,21 +114,10 @@
 				<version>${mysql.version}</version>
 			</dependency>
 
-			<!--plugin-->
-			<dependency>
-				<groupId>org.apache.maven</groupId>
-				<artifactId>maven-plugin-api</artifactId>
-				<version>3.3.9</version>
-			</dependency>
-			<dependency>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-core</artifactId>
-				<version>1.3.5</version>
-			</dependency>
-
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
+				<version>${spring.boot.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
@@ -168,23 +157,25 @@
 						<verbose>true</verbose>
 						<overwrite>true</overwrite>
 					</configuration>
+					<dependencies>
+						<!--plugin-->
+						<dependency>
+							<groupId>org.apache.maven</groupId>
+							<artifactId>maven-plugin-api</artifactId>
+							<version>3.3.9</version>
+						</dependency>
+						<dependency>
+							<groupId>org.mybatis.generator</groupId>
+							<artifactId>mybatis-generator-core</artifactId>
+							<version>1.3.5</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${spring.boot.version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
-							</goals>
-							<!--可以生成不含依赖包的不可执行Jar包-->
-							<!-- configuration>
-                              <classifier>exec</classifier>
-                            </configuration> -->
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
