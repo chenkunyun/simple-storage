@@ -6,13 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Created by kchen on 2017/2/26.
- * entry point
+ * Main class
  */
 
 @SpringBootApplication
 @MapperScan(basePackages = {"com.kchen.storage.dao.mapper.common"})
-public class RestMainApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(RestMainApplication.class);
+        SpringApplication.run(Application.class);
     }
 }
