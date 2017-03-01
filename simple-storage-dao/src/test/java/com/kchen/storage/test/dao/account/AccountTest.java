@@ -4,7 +4,7 @@ import com.kchen.storage.dao.domain.common.Account;
 import com.kchen.storage.dao.mapper.common.AccountMapper;
 import static org.junit.Assert.*;
 
-import com.kchen.storage.test.dao.application.Application;
+import com.kchen.storage.test.dao.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

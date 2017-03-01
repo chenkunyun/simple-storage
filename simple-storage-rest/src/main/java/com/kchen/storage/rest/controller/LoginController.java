@@ -1,5 +1,7 @@
 package com.kchen.storage.rest.controller;
 
+import com.kchen.storage.service.account.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +17,13 @@ import java.util.Map;
 @RequestMapping("/")
 public class LoginController {
 
+    @Autowired
+    private AccountService accountService;
+
     @RequestMapping("/")
-    public Map<String, String> home() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "1");
+    public Map<String, Object> home() {
+        Map<String, Object> result = new HashMap<>();
+        result.put("code", accountService.login("", ""));
         result.put("msg", "succ");
         return result;
     }

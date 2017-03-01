@@ -69,7 +69,7 @@
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
-               enableSelectByExample="false"
+               enableSelectByExample="true"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false" />
 
