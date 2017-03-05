@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config;
+package com.kchen.storage.rest.config.mvc;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;

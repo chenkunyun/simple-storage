@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config;
+package com.kchen.storage.rest.config.service;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
