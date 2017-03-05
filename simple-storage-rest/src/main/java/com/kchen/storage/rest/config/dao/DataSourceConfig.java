@@ -4,7 +4,6 @@ import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.validation.annotation.Validated;
 
@@ -13,11 +12,10 @@ import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 
 @Configuration
-@Profile("dev")
 @ConfigurationProperties("datasource.jdbc")
-@PropertySource({"classpath:datasource-dev.properties"})
+@PropertySource({"classpath:datasource-${spring.profiles.active}.properties"})
 @Validated
-public class DevDataSourceConfig {
+public class DataSourceConfig {
 
     @NotNull
     private String url;
@@ -70,7 +68,7 @@ public class DevDataSourceConfig {
     @NotNull
     private Integer maxOpenPreparedStatements;
 
-    @Bean(name = "dev", initMethod = "init", destroyMethod = "close")
+    @Bean(name = "devDataSource", initMethod = "init", destroyMethod = "close")
     public DataSource dataSource() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(url);
