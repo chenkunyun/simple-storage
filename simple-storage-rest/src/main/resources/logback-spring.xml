@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+
+    <!--different web apps *SHOULD* use different app name-->
+    <property name="appName" value="simple-storage"/>
+
+    <property name="logFmt" value="%d{yyyy-MM-dd HH:mm:ss.SSS}]|[%5level]|[%thread]|[%logger{10}]|[%msg%n"/>
+    <property name="maxHistory" value="30"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${logFmt}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                /tmp/${appName}/%d{yyyyMMdd}.log
+            </fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                ${logFmt}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <springProperty name="profile" source="spring.profiles.active" defautlValue="dev"/>
+
+    <springProfile name="!dev">
+        <root level="INFO">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="STDOUT" />
+            <!--<appender-ref ref="FILE"/>-->
+        </root>
+    </springProfile>
+
+</configuration>
