@@ -42,7 +42,7 @@
 		<guava.version>21.0</guava.version>
 		<fastjson.version>1.2.24</fastjson.version>
 		<commons.collections4.version>4.1</commons.collections4.version>
-
+		<jansi.version>1.9</jansi.version>
 	</properties>
 
 	<dependencyManagement>
@@ -96,6 +96,12 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.fusesource.jansi</groupId>
+				<artifactId>jansi</artifactId>
+				<version>${jansi.version}</version>
 			</dependency>
 
 		</dependencies>
