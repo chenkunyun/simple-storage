@@ -5,13 +5,12 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
 import com.google.common.collect.Lists;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by kchen on 2017/2/28.
@@ -19,10 +18,10 @@ import java.util.List;
  */
 @Configuration
 @ConditionalOnClass({FastJsonHttpMessageConverter4.class})
-public class MvcConfig extends WebMvcConfigurerAdapter {
+public class MvcConfig {
 
-    @Override
-    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+    @Bean
+    public HttpMessageConverters customMessageConverters() {
         FastJsonHttpMessageConverter4 messageConverter = new FastJsonHttpMessageConverter4();
         ArrayList<MediaType> mediaTypes = Lists.newArrayList(
                 MediaType.parseMediaType("application/json;charset=UTF-8"),
@@ -40,7 +39,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
                 SerializerFeature.DisableCircularReferenceDetect
         );
         messageConverter.setFastJsonConfig(fastJsonConfig);
-        converters.add(0, messageConverter);
-        super.extendMessageConverters(converters);
+
+        // by using the ctor below, FastjsonConverter will be put in the index 0 position
+        return new HttpMessageConverters(true, Lists.newArrayList(messageConverter));
     }
 }
