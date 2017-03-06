@@ -12,8 +12,8 @@ import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 
 @Configuration
-@ConfigurationProperties("datasource.jdbc")
 @PropertySource({"classpath:datasource-${spring.profiles.active}.properties"})
+@ConfigurationProperties("datasource.jdbc")
 @Validated
 public class DataSourceConfig {
 
@@ -68,7 +68,7 @@ public class DataSourceConfig {
     @NotNull
     private Integer maxOpenPreparedStatements;
 
-    @Bean(name = "devDataSource", initMethod = "init", destroyMethod = "close")
+    @Bean(name = "${spring.profiles.active}DataSource", initMethod = "init", destroyMethod = "close")
     public DataSource dataSource() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(url);
