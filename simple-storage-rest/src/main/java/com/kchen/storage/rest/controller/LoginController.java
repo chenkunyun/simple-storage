@@ -60,9 +60,4 @@ public class LoginController {
             return "redirect:login";
         }
     }
-
-    @RequestMapping("/403")
-    public String error_403() {
-        return "403";
-    }
 }

@@ -32,7 +32,7 @@ public class ShiroConfig {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
 
         factoryBean.setSecurityManager(securityManager);
-        factoryBean.setUnauthorizedUrl("/403");
+        factoryBean.setUnauthorizedUrl("/403"); // useless code! BaseController has handled the exception
         factoryBean.setLoginUrl("/login");
 
         Map<String, Filter> filters = new HashMap<>();
@@ -69,6 +69,9 @@ public class ShiroConfig {
     private LinkedHashMap<String, String> getFilterChainDefinitionMap() {
         LinkedHashMap<String, String> filterMap = new LinkedHashMap<>();
 
+        /** example
+         *   /remoting/** = authcBasic, roles[b2bClient], perms["remote:invoke:wan,lan"]
+          */
         filterMap.put("/logout", "logout");
         filterMap.put("/resources/**", "anon");
         filterMap.put("/login", "anon");
