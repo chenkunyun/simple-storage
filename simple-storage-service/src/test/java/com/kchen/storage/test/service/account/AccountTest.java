@@ -1,5 +1,7 @@
 package com.kchen.storage.test.service.account;
 
+import com.kchen.storage.dao.domain.common.Account;
+import com.kchen.storage.dao.mapper.common.AccountMapper;
 import com.kchen.storage.service.account.AccountService;
 import com.kchen.storage.test.service.Application;
 import org.junit.Assert;
@@ -19,8 +21,24 @@ public class AccountTest {
     @Autowired
     private AccountService accountService;
 
+    @Autowired
+    private AccountMapper accountMapper;
+
     @Test
     public void loginTest() {
-        Assert.assertFalse(accountService.login("", ""));
+        Assert.assertNull(accountService.login("", ""));
+    }
+
+    @Test
+    public void addAccount() {
+        Account account = new Account();
+        account.setEmail("1111111@gmail.com");
+        account.setEnabled(1);
+        account.setNickName("nickname");
+        account.setUserName("admin");
+        account.setPassword("123456");
+        account.setRole("admin");
+        account.setPhone("12345678900");
+        accountMapper.insert(account);
     }
 }

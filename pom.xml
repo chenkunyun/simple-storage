@@ -24,6 +24,7 @@
 		<java.version>1.8</java.version>
 
 		<spring.boot.version>1.5.1.RELEASE</spring.boot.version>
+		<shiro.version>1.3.2</shiro.version>
 
 		<!--plugin version-->
 		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
@@ -60,6 +61,12 @@
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>${spring.boot.mybatis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
 			</dependency>
 
 			<dependency>

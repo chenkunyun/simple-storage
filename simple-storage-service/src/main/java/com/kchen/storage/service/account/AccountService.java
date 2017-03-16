@@ -1,9 +1,10 @@
 package com.kchen.storage.service.account;
 
+import com.kchen.storage.dao.domain.common.Account;
+
 /**
- * Created by kchen on 2017/3/1.
  * handling account stuff
  */
 public interface AccountService {
-    boolean login(String loginName, String password);
+    Account login(String loginName, String password);
 }
