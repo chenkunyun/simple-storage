@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: dev
+  mvc:
+    static-path-pattern: /resources/**
 
 mybatis:
   check-config-location: true

@@ -13,13 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by kchen on 2017/2/28.
- * login stuff
- */
 @Controller
 @RequestMapping("/")
 public class LoginController {
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String root() {
+        return "home";
+    }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home() {
+        return "redirect:";
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
@@ -32,32 +38,31 @@ public class LoginController {
             @RequestParam("password") String password,
             HttpServletRequest request,
             HttpServletResponse response) {
-        UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
+
         Subject currentUser = SecurityUtils.getSubject();
+        if (currentUser.isAuthenticated()) {
+            currentUser.logout();
+        }
+
+        UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
+        AuthenticationException exception = null;
         try {
             currentUser.login(token);
             try {
-                WebUtils.redirectToSavedRequest(request, response, "/user");
+                WebUtils.redirectToSavedRequest(request, response, "/");
             } catch (IOException e) {
                 throw new AuthenticationException("failed to redirect");
             }
-        }catch(UnknownAccountException uae){
-
-        }catch(IncorrectCredentialsException ice){
-
-        }catch(LockedAccountException lae){
-
-        }catch(ExcessiveAttemptsException eae){
-
-        }catch(AuthenticationException ae){
-
+        } catch(AuthenticationException ae){
+            exception = ae;
         }
 
-        if(currentUser.isAuthenticated()){
-            return null;
-        }else{
+        String viewName = null;
+        if (exception != null) {
             token.clear();
-            return "redirect:login";
+            viewName = "redirect:login";
         }
+
+        return viewName;
     }
 }
