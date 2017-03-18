@@ -5,6 +5,7 @@ import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authc.PassThruAuthenticationFilter;
+import org.apache.shiro.web.filter.mgt.DefaultFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
@@ -38,7 +39,7 @@ public class ShiroConfig {
         Map<String, Filter> filters = new HashMap<>();
         PassThruAuthenticationFilter passThruAuthenticationFilter = new PassThruAuthenticationFilter();
         passThruAuthenticationFilter.setLoginUrl("/login");
-        filters.put("authc", passThruAuthenticationFilter);
+        filters.put(DefaultFilter.authc.name(), passThruAuthenticationFilter);
         factoryBean.setFilters(filters);
 
         factoryBean.setFilterChainDefinitionMap(getFilterChainDefinitionMap());
@@ -72,10 +73,10 @@ public class ShiroConfig {
         /** example
          *   /remoting/** = authcBasic, roles[b2bClient], perms["remote:invoke:wan,lan"]
           */
-        filterMap.put("/logout", "logout");
-        filterMap.put("/resources/**", "anon");
-        filterMap.put("/login", "anon");
-        filterMap.put("/**", "authc");
+        filterMap.put("/logout", DefaultFilter.logout.name());
+        filterMap.put("/resources/**", DefaultFilter.anon.name());
+        filterMap.put("/login", DefaultFilter.anon.name());
+        filterMap.put("/**", DefaultFilter.authc.name());
 
         return filterMap;
     }
