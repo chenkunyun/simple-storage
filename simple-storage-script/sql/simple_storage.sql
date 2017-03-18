@@ -11,7 +11,7 @@
  Target Server Version : 50635
  File Encoding         : utf-8
 
- Date: 02/28/2017 16:31:54 PM
+ Date: 03/18/2017 19:12:42 PM
 */
 
 SET NAMES utf8mb4;
@@ -23,11 +23,22 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `login_name` varchar(64) DEFAULT NULL COMMENT '登录名',
-  `password` varchar(18) DEFAULT NULL COMMENT '密码',
-  `nick_name` varchar(64) DEFAULT NULL COMMENT '昵称',
-  `type` int(11) DEFAULT '0' COMMENT '用户类型：0-普通用户， 1- 管理员',
+  `user_name` varchar(64) NOT NULL COMMENT 'user name',
+  `password` varbinary(256) NOT NULL COMMENT 'encrypted password',
+  `salt` varchar(32) NOT NULL COMMENT 'salt',
+  `nick_name` varchar(64) DEFAULT NULL COMMENT 'nickname',
+  `role` varchar(32) NOT NULL DEFAULT '0' COMMENT '0-normal user, 1-admin',
+  `enabled` int(11) NOT NULL DEFAULT '1',
+  `phone` varchar(18) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `account`
+-- ----------------------------
+BEGIN;
+INSERT INTO `account` VALUES ('6', 'admin', 0xff665b7194cceb9fd34264a0a3f3d0d5f6230ac6308fd365e261ee6afb1a2a9f, '19qSCnBi7XpIjlDjHJrxwZrMUkgNQqrx', 'nickname', 'admin', '1', '12345678900', '1111111@gmail.com');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

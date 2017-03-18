@@ -41,8 +41,6 @@
         <!--配置实体bean-->
         <javaModelGenerator targetPackage="com.kchen.storage.dao.domain.common"
                             targetProject="src/main/java">
-            <!-- 是否对model添加 构造函数 -->
-            <property name="constructorBased" value="true"/>
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
             <!-- 是否对类CHAR类型的列的数据进行trim操作 -->

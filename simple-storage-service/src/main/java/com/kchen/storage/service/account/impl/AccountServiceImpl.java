@@ -22,12 +22,11 @@ public class AccountServiceImpl implements AccountService {
     private AccountMapper accountMapper;
 
     @Override
-    public Account login(String loginName, String password) {
+    public Account login(String loginName) {
         AccountExample example = new AccountExample();
         AccountExample.Criteria criteria = example.createCriteria();
-        criteria.andUserNameEqualTo(loginName)
-                .andPasswordEqualTo(password);
-        List<Account> accountList = accountMapper.selectByExample(example);
+        criteria.andUserNameEqualTo(loginName);
+        List<Account> accountList = accountMapper.selectByExampleWithBLOBs(example);
         if (CollectionUtils.isEmpty(accountList)) {
             return null;
         }

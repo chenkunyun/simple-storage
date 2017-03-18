@@ -6,5 +6,5 @@ import com.kchen.storage.dao.domain.common.Account;
  * handling account stuff
  */
 public interface AccountService {
-    Account login(String loginName, String password);
+    Account login(String loginName);
 }
