@@ -1,16 +1,11 @@
-package com.kchen.storage.rest;
+package com.kchen.storage.web.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Created by kchen on 2017/2/26.
- * Main class
- */
-
 @SpringBootApplication
-public class Application {
+public class WebAdminApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class);
+        SpringApplication.run(WebAdminApplication.class);
     }
 }

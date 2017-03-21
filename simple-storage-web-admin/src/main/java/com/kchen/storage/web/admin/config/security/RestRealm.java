@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config.security;
+package com.kchen.storage.web.admin.config.security;
 
 import com.google.common.collect.Sets;
 import com.kchen.storage.dao.domain.common.Account;

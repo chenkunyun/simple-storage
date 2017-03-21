@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config.security;
+package com.kchen.storage.web.admin.config.security;
 
 
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -76,6 +76,7 @@ public class ShiroConfig {
         filterMap.put("/logout", DefaultFilter.logout.name());
         filterMap.put("/resources/**", DefaultFilter.anon.name());
         filterMap.put("/login", DefaultFilter.anon.name());
+        filterMap.put("/info", DefaultFilter.anon.name());
         filterMap.put("/**", DefaultFilter.authc.name());
 
         return filterMap;

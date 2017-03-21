@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.controller;
+package com.kchen.storage.web.admin.controller;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -30,6 +30,11 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
+    }
+
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public String info() {
+        return "info";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)

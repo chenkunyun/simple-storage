@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /resources/**
+  application:
+    name: rest-api-web-admin
+
+mybatis:
+  check-config-location: true
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.kchen.storage.dao.domain.common
+  configuration:
+      map-underscore-to-camel-case: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/

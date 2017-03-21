@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config.mvc;
+package com.kchen.storage.web.admin.config.mvc;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -12,6 +12,10 @@ import org.springframework.http.MediaType;
 
 import java.util.ArrayList;
 
+/**
+ * Created by kchen on 2017/2/28.
+ * custom mvc config
+ */
 @Configuration
 @ConditionalOnClass({FastJsonHttpMessageConverter4.class})
 public class MvcConfig {

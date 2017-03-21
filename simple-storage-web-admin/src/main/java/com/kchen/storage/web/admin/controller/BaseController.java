@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.controller;
+package com.kchen.storage.web.admin.controller;
 
 import org.apache.shiro.authz.AuthorizationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

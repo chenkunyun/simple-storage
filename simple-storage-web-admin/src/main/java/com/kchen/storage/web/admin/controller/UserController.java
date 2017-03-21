@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.controller;
+package com.kchen.storage.web.admin.controller;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config.security;
+package com.kchen.storage.web.admin.config.security;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.authc.AuthenticationInfo;

@@ -1,4 +1,4 @@
-package com.kchen.storage.rest.config.dao;
+package com.kchen.storage.web.admin.config.dao;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
