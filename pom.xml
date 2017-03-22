@@ -13,7 +13,8 @@
 		<module>simple-storage-rest</module>
 		<module>simple-storage-web-admin</module>
 		<module>simple-storage-registry-server</module>
-	</modules>
+        <module>simple-storage-rest-consumer</module>
+    </modules>
     <packaging>pom</packaging>
 
 	<name>simple-storage</name>
