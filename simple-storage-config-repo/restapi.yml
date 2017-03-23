@@ -1,0 +1,2 @@
+registryserver:
+  url: http://localhost:1111/eureka/
