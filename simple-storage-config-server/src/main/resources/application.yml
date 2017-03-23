@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/chenkunyun/simple-storage
+          search-paths: simple-storage-config-repo
+          username: xxx
+          password: xxx
+server:
+  port: 7777

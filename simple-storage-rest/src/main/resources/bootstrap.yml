@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: rest-api
+  cloud:
+    config:
+      profile: dev
+      label: master
+      uri: http://localhost:7777
+server:
+  port: 7002

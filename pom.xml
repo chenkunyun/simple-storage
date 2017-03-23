@@ -14,6 +14,7 @@
 		<module>simple-storage-web-admin</module>
 		<module>simple-storage-registry-server</module>
         <module>simple-storage-rest-consumer</module>
+        <module>simple-storage-config-server</module>
     </modules>
     <packaging>pom</packaging>
 

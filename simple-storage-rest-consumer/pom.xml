@@ -33,6 +33,7 @@
     </dependencies>
 
     <build>
+        <finalName>simple-storage-rest-consumer</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
