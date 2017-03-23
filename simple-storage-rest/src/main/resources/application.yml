@@ -1,12 +1,8 @@
 spring:
-  profiles:
-    active: dev
   mvc:
     static-path-pattern: /resources/**
-  application:
-    name: rest-api
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: ${registryserver.url}
