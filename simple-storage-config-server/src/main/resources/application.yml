@@ -9,5 +9,11 @@ spring:
           search-paths: simple-storage-config-repo
           username: xxx
           password: xxx
+
 server:
   port: 7777
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
