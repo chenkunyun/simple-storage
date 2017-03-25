@@ -15,7 +15,9 @@
 		<module>simple-storage-registry-server</module>
         <module>simple-storage-rest-consumer</module>
         <module>simple-storage-config-server</module>
-    </modules>
+        <module>simple-storage-api-gateway</module>
+		<module>simple-storage-rest-search</module>
+	</modules>
     <packaging>pom</packaging>
 
 	<name>simple-storage</name>
