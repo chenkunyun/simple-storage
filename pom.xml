@@ -18,7 +18,6 @@
         <module>simple-storage-api-gateway</module>
 		<module>simple-storage-rest-search</module>
         <module>simple-storage-sidecar-php</module>
-		<module>simple-storage-sidecar-php</module>
 		<module>simple-storage-sidecar-php-demo</module>
 	</modules>
     <packaging>pom</packaging>
