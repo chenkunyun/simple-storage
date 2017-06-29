@@ -1,0 +1,18 @@
+server:
+  port: 9517
+
+spring:
+  application:
+    name: sidecar-php
+  cloud:
+    config:
+      profile: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+sidecar:
+  port: 8765
+  health-uri: http://localhost:${sidecar.port}/health

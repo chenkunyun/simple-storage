@@ -18,6 +18,9 @@ zuul:
     search:
       path: /search/**
       serviceId: rest-api-search
+    php:
+      path: /php/**
+      serviceId: sidecar-php
 
 eureka:
   client:

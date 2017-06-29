@@ -1,0 +1,11 @@
+server:
+  port: 8765
+  context-path: /
+
+spring:
+  application:
+    name: sidecar-php-demo
+  cloud:
+    config:
+      profile: dev
+
